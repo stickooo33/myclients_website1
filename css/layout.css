@@ -1,0 +1,142 @@
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--space-sm);
+}
+
+main section {
+  padding: var(--space-xl) 0;
+}
+.ambient-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+.stars {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background-image:
+    radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(1px 1px at 40% 70%, rgba(255,255,255,0.5), transparent),
+    radial-gradient(1px 1px at 60% 20%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(1px 1px at 80% 50%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(1px 1px at 10% 80%, rgba(255,255,255,0.5), transparent);
+
+  background-repeat: repeat;
+  background-size: 300px 300px;
+  opacity: 0.75;
+}
+@keyframes drift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-200px, -200px, 0);
+  }
+}
+
+.stars {
+  animation: drift 120s linear infinite;
+}
+body {
+  background: radial-gradient(
+    ellipse at top,
+    #0b1220 0%,
+    #070b14 60%,
+    #05080f 100%
+  );
+}
+.stars {
+  z-index: -1;
+}
+body {
+  position: relative;
+}
+.shooting-star {
+  position: absolute;
+  top: 20%;
+  left: 110%;
+
+  width: 6px;
+  height: 6px;
+
+  background: white;
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 6px rgba(255,255,255,0.9),
+    0 0 12px rgba(255,255,255,0.6);
+
+  opacity: 0;
+  transform: rotate(-35deg);
+}
+.shooting-star::after {
+  content: "";
+  position: absolute;
+  right: 50%;
+  top: 50%;
+
+  width: 140px;
+  height: 2px;
+
+  background: linear-gradient(
+    to left,
+    rgba(255,255,255,0.5),
+    rgba(255,255,255,0.2),
+    rgba(255,255,255,0)
+  );
+
+  transform: translateY(-50%);
+  filter: blur(1px);
+}
+.shooting-star::after {
+  opacity: 0.1;
+   width: 100px;
+      height: 1px;
+}
+
+@keyframes shoot {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) rotate(-35deg);
+  }
+
+  2% {
+    opacity: 1;
+  }
+
+  7% {
+    opacity: 1;
+    transform: translate3d(-700px, 350px, 0) rotate(-35deg);
+  }
+
+  10% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.shooting-star {
+  animation: shoot 28s ease-out infinite;
+}
+
+.shooting-star {
+  animation-delay: 5s;
+  top: 15%;
+}
+
+.ambient-bg:hover .shooting-star {
+  top: 35%;
+}
+
+
+
+
+

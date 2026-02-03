@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Stickwebs</title>
+
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/pages.css">
+
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+
+<body>
+
+<main class="contact-page">
+
+  <section class="contact-section reveal">
+    <div class="container contact-center">
+
+      <form id="contactForm" class="contact-form" novalidate>
+
+        <div class="field">
+          <input type="text" id="name" required>
+          <label for="name">Your Name</label>
+          <span class="field-error" id="name-error">Name is required</span>
+        </div>
+
+        <div class="field">
+          <input type="email" id="email" required>
+          <label for="email">Email Address</label>
+          <span class="field-error" id="email-error">
+            Please enter a valid email
+          </span>
+        </div>
+
+        <div class="field">
+          <textarea id="message" rows="4" required></textarea>
+          <label for="message">Tell me about your project</label>
+          <span class="field-error" id="message-error">
+            Message is required
+          </span>
+        </div>
+
+        <div class="g-recaptcha"
+             data-sitekey="6Ld8e18sAAAAANFFgjxxXQoNUOO9O9Qfp4Hjeb40">
+        </div>
+
+        <button type="submit" class="btn full">Send Message</button>
+
+        <p class="form-status" aria-live="polite"></p>
+
+      </form>
+
+    </div>
+  </section>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>
+  emailjs.init("Nu9H7LHGWHDwS9lzl");
+</script>
+
+<script src="js/themetoggle.js"></script>
+<script src="js/contacts.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>
